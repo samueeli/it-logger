@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TechSelectOptions from '../techs/TechSelectOptions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { updateLog } from '../../actions/logActions';
@@ -45,18 +46,26 @@ const EditLogModal = ({ updateLog, current }) => {
         <h4>Enter System Log</h4>
         <div className="row">
           <div className="input-field">
-            <input type="text" name="message" value={message} onChange={(e) => setMessage(e.target.value)} />
+            <input
+              type="text"
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
           </div>
         </div>
         <div className="row">
           <div className="input-field">
-            <select name="tech" value={tech} className="browser-default" onChange={(e) => setTech(e.target.value)}>
+            <select
+              name="tech"
+              value={tech}
+              className="browser-default"
+              onChange={(e) => setTech(e.target.value)}
+            >
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="John Doe">John Doe</option>
-              <option value="Sam Smith">Sam Smith</option>
-              <option value="Sara Wilson">Sara Wilson</option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>
@@ -78,7 +87,11 @@ const EditLogModal = ({ updateLog, current }) => {
         </div>
       </div>
       <div className="modal-footer">
-        <a href="#!" onClick={onSubmit} className="modal-close waves-effect blue waves-light btn">
+        <a
+          href="#!"
+          onClick={onSubmit}
+          className="modal-close waves-effect blue waves-light btn"
+        >
           Enter
         </a>
       </div>
